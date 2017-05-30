@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>感谢注册</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Log/semantic.min.css' %}">
+    <script src="{% static 'Log/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'Log/semantic.min.js' %}"></script>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<div>
+    <p>感谢您的注册</p>
+</div>
+
+<div class="ui card">
+    <div class="image">
+        <img src="{% static 'Log/images/default.png' %}" alt="默认头像">
+    </div>
+    <div class="content">
+        <a class="header">{{user.user_name}}</a>
+        <div class="meta">
+            <span class="date">Joined in 2013</span>
+        </div>
+        <div class="description">
+            Kristy is an art director living in New York.
+        </div>
+    </div>
+    <div class="extra content">
+        <a>
+            <i class="user icon"></i>
+            22 Friends
+        </a>
+    </div>
+</div>
+
+
+</body>
+</html>

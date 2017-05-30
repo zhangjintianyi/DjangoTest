@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>DjangoTest</title>
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'Log/semantic.min.css' %}">
+    <script src="{% static 'Log/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'Log/semantic.min.js' %}"></script>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<br>
+<div class="ui centered grid">
+    <h2>帅气的你请登录</h2>
+</div>
+<div class="ui form centered grid">
+    {% if form.errors %}
+        <p class="red">
+            Please correct the error{{ form.errors|pluralize }} below.
+        </p>
+    {% endif %}
+    <form action="{% url 'Log:login' %}" class="ui form" , method="post">
+        {% csrf_token %}
+        <div class="field">
+            {{ form.email.errors }}
+            <label class="Left floated">邮箱</label>
+            {{ form.email }}
+        </div>
+        <div class="field">
+            {{ form.user_name.errors }}
+            <label>昵称</label>
+            {{ form.user_name }}
+        </div>
+        <div class="field">
+            {{ form.password.errors }}
+            <label>密码</label>
+            {{ form.password }}
+        </div>
+        <div class="field">
+            <div class="ui checkbox">
+                {{ form.remember_me.errors }}
+                {{ form.remember_me }}
+                <label>记住我</label>
+            </div>
+        </div>
+        <button class="ui blue basic button">注册</button>
+    </form>
+</div>
+</body>
+</html>
+{#<script>#}
+{#    function isEmail(value) {#}
+{#        if (value.search(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/) == -1)#}
+{#            return false;#}
+{#        else#}
+{#            return true;#}
+{#    }#}
+{##}
+{##}
+{##}
+{#</script>#}
